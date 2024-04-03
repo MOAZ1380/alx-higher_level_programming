@@ -93,4 +93,3 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
             return False
         return True
-
