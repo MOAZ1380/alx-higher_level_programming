@@ -2,26 +2,61 @@
 
 
 class Square:
+    """
+    class square that has attributes:
+        size
+    some attributes are protected from input.
+    """
     def __init__(self, size=0, position=(0, 0)):
+        """
+        initialization function for our square clasee
+        """
         if self.__validate_size(size):
             self.__size = size
         if self.__validate_pos(position):
             self.__position = position
+
+    @property
     def size(self):
+        """
+        getter for size attribute
+        """
         return self.__size
+
+    @size.setter
     def size(self, value):
+        """
+        setter for size attribute
+        """
         if self.__validate_size(value):
             self.__size = value
+
+    @property
     def position(self):
+        """
+        getter for position attribute
+        """
         return self.__position
+
+    @position.setter
     def position(self, value):
+        """
+        setter for position attribute
+        """
         if self.__validate_pos(value):
             self.__position = value
 
     def area(self):
+        """
+        calculates the area of the square
+        """
         return self.__size ** 2
 
     def my_print(self):
+        """
+        prints the square using '#' characters
+        also takes into account position (x, y) offsets
+        """
         i = 0
         if self.__size == 0:
             print()
@@ -39,6 +74,9 @@ class Square:
             print()
 
     def __validate_size(self, size):
+        """
+        validates the size, checking for errors
+        """
         if type(size) != int:
             raise TypeError("size must be an integer")
         elif size < 0:
@@ -48,6 +86,9 @@ class Square:
         return False
 
     def __validate_pos(self, position):
+        """
+        validates the position, checking for type errors
+        """
         if not isinstance(position, type((0, 0))):
             raise TypeError("position must be a tuple of 2 positive integers")
             return False
