@@ -46,3 +46,4 @@ class Square:
         else:
             return True
         return False
+

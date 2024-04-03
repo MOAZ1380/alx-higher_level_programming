@@ -11,3 +11,4 @@ class Square:
         the initialization function for the square class
         """
         self.__size = size
+
