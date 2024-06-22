@@ -20,6 +20,6 @@ if __name__ == "__main__":
     res_len = len(result)
     for i in range(res_len):
         if i < res_len - 1:
-            print(result[i][0], end=", ")
+            print(result[i], end=", ")
         else:
-            print(result[i][0])
+            print(result[i])
