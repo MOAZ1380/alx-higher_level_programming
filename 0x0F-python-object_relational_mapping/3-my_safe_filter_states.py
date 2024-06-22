@@ -13,8 +13,8 @@ if __name__ == "__main__":
                          port=3306)
     c = db.cursor()
     c.execute("""SELECT * FROM states
-    WHERE name LIKE BINARY "{:s}"
-    ORDER BY id ASC""".format(sys.argv[4]))
+    WHERE name LIKE BINARY %s
+    ORDER BY id ASC""", (sys.argv[4],))
     result = c.fetchall()
     for row in result:
         print(row)
