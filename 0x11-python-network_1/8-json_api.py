@@ -8,17 +8,17 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
+    if len(argv) < 2:
         q = ""
     else:
-        q = sys.argv[1]
+        q = argv[1]
     data = {'q' : q}
     r = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
         json_data = r.json()
-        if json_data == {}:
+        if bool(json_data) is False:
             print("No result")
         else:
-            print("[{}] {}".format(json_data.get("id"), json_data.get("name")))
-    except ValueError:
+            print("[{}] {}".format(json_data['id'], json_data['name']))
+    except:
         print("Not a valid JSON")
