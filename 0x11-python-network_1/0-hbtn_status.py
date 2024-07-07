@@ -7,8 +7,7 @@ Python script
 from urllib import request
 
 if __name__ == "__main__":
-    req = request.Request('https://alx-intranet.hbtn.io/status')
-    with request.urlopen(req) as response:
+    with request.urlopen("https://alx-intranet.hbtn.io/status") as response:
         html = response.read()
     print("- Body response:")
     print("\t- type:", type(html))

@@ -7,26 +7,19 @@ import requests
 from sys import argv
 
 
-def main(argv):
-    """
-    Script that takes in a letter and sends a POST request to
-    http://0.0.0.0:5000/search_user with the letter as a parameter.
-    """
-    if len(argv) < 2:
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
         q = ""
     else:
-        q = argv[1]
-    payload = {'q': q}
-    url = "http://0.0.0.0:5000/search_user"
-    r = requests.post(url, data=payload)
+        q = sys.argv[1]
+    data = {'q' : q}
+    r = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
-        result = r.json()
-        if bool(result) is False:
+        json_data = r.json()
+        if not json_data:
             print("No result")
         else:
-            print("[{}] {}".format(result['id'], result['name']))
-    except:
+        print(f"[{json_data['id']}] {{json_data['name']}")
+    except ValueError:
         print("Not a valid JSON")
 
-if __name__ == "__main__":
-    main(argv)
