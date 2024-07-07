@@ -19,7 +19,7 @@ if __name__ == "__main__":
         if not json_data:
             print("No result")
         else:
-        print(f"[{json_data['id']}] {{json_data['name']}")
+            print(f"[{json_data['id']}] {{json_data['name']}")
     except ValueError:
         print("Not a valid JSON")
 
