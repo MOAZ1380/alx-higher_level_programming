@@ -1,36 +1,21 @@
-#!/usr/bin/python3
-
-"""
-A module: Defines a class that inherits from 'int'
-"""
+def add_attribute(MyClass, name, value):
+        name = value
+        
 
 
-class MyInt(int):
-    """
-    Inherits `int` and reverses the equality operators
-    """
-    def __eq__(self, other):
-        """
-        Inverts the conventional equality operation
 
-        Args:
-            self (MyInt): left operand
-            other (MyInt): right operand
 
-        Returns:
-            boolean: True if left and right operands are different else False
-        """
-        return not super().__eq__(other)
 
-    def __ne__(self, other):
-        """
-        Inverts the conventional equality operation
+class MyClass():
+    pass
 
-        Args:
-            self (MyInt): left operand
-            other (MyInt): right operand
+mc = MyClass()
+add_attribute(mc, "name", "John")
+print(mc.name)
 
-        Returns:
-            boolean: True if left and right operands are equal else False
-        """
-        return not super().__ne__(other)
+try:
+    a = "My String"
+    add_attribute(a, "name", "Bob")
+    print(a.name)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
